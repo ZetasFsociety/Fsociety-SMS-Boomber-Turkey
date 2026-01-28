@@ -59,7 +59,7 @@ XX   MMMMMMd              'hMMMMMMMMMMMMMMMMMMMMMMh'              dMMMMMM   XX
 XX   MMMMMMM-               ''ddMMMMMMMMMMMMMMdd''               -MMMMMMM   XX
 XX   MMMMMMMM                   '::dddddddd::'                   MMMMMMMM   XX
 XX   MMMMMMMM-                                                  -MMMMMMMM   XX
-XX   MMMMMMMMM                print("./null.exe")               MMMMMMMMM   XX
+XX   MMMMMMMMM                    ./null.exe                    MMMMMMMMM   XX
 XX   MMMMMMMMMy                                                yMMMMMMMMM   XX
 XX   MMMMMMMMMMy.                                            .yMMMMMMMMMM   XX
 XX   MMMMMMMMMMMMy.                                        .yMMMMMMMMMMMM   XX
@@ -79,7 +79,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
    o888o   8""888P' `Y8bod8P' `Y8bod8P' o888o `Y8bod8P'   "888"      d8'      
 ______________________________________________________________________________
       Maker: ./null.exe And _marcus
-    Sms: {}           {} by {}./null.exe \n  
+    Sms: {}        {} by {}./null.exe \n  
     """.format(Fore.RED, len(servisler_sms), Style.RESET_ALL, Fore.RED))
     try:
         menu = (input(Fore.RED + " 1- SMS Gönder (Normal)\n\n 2- SMS Gönder (Turbo)\n\n 3- Çıkış\n\n" + Fore.RED + " Seçim: "))
