@@ -91,7 +91,7 @@ XX   MMMMMMd              'hMMMMMMMMMMMMMMMMMMMMMMh'              dMMMMMM   XX
 XX   MMMMMMM-               ''ddMMMMMMMMMMMMMMdd''               -MMMMMMM   XX
 XX   MMMMMMMM                   '::dddddddd::'                   MMMMMMMM   XX
 XX   MMMMMMMM-                                                  -MMMMMMMM   XX
-XX   MMMMMMMMM                    ./null.exe                    MMMMMMMMM   XX
+XX   MMMMMMMMM                    THEZETAS                      MMMMMMMMM   XX
 XX   MMMMMMMMMy                                                yMMMMMMMMM   XX
 XX   MMMMMMMMMMy.                                            .yMMMMMMMMMM   XX
 XX   MMMMMMMMMMMMy.                                        .yMMMMMMMMMMMM   XX
